@@ -1,0 +1,57 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.4.3'
+    id 'io.spring.dependency-management' version '1.1.7'
+}
+bootJar.enabled = false  // 빌드시 현재 모듈(wallet)의 .jar를 생성하지 않습니다.
+
+
+//하위 모듈에 해당 설정을 적용합니다.
+subprojects {
+    group = 'org.hj'
+    version = '0.0.1-SNAPSHOT'
+
+    apply plugin: 'java'
+    apply plugin: 'java-library'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+
+    configurations {
+        compileOnly {
+            extendsFrom annotationProcessor
+        }
+    }
+
+    // 빌드시 java 17 환경을 보장합니다.
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(17)
+        }
+    }
+
+    allprojects {
+        repositories {
+            mavenCentral()
+        }
+    }
+
+    dependencies {
+        implementation 'org.springframework.boot:spring-boot-starter'
+        testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+        /* testRuntimeOnly 'org.junit.platform:junit-platform-launcher'*/
+        //롬복
+        compileOnly 'org.projectlombok:lombok:1.18.28'
+        annotationProcessor 'org.projectlombok:lombok:1.18.28'
+    }
+
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
+
+
+
+

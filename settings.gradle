@@ -1,0 +1,12 @@
+rootProject.name = 'wallet'
+
+include("app-module")
+include("infra-module")
+include("core-module")
+
+dependencyResolutionManagement {
+    repositories {
+        mavenCentral()
+    }
+
+}
