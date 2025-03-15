@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: app-module
+  spring:
+    config:
+      import: "classpath:application-infra.yml, classpath:application-common.yml, classpath:application-core.yml"
