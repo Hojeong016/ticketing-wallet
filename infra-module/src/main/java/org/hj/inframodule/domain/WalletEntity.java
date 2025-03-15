@@ -1,8 +1,7 @@
-package org.hj.inframodule.domain.domain;
+package org.hj.inframodule.domain;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import java.math.BigDecimal;
@@ -11,8 +10,8 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "wallet")
 @Getter
-@Setter
-public class Wallet {
+@NoArgsConstructor
+public class WalletEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -49,5 +48,13 @@ public class Wallet {
     @Column(nullable = true)
     private LocalDateTime updatedAt;
 
+    @Builder
+    public WalletEntity(Long walletId,Long orderId ,BigDecimal amount, String settlementStatus, LocalDateTime settlementDate) {
+        this.id = null;
+        this.amount = amount;
+        this.settlementStatus = settlementStatus;
+        this.settlementDate = settlementDate;
+        this.orderId = orderId;
+    }
 }
 
