@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.hj.coremodule.model.domain.SettlementStatus;
+
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
@@ -28,7 +30,7 @@ public class WalletEntity {
     private BigDecimal amount;
 
     @Column(nullable = false)
-    private String settlementStatus;
+    private SettlementStatus settlementStatus;
 
     /**
      * 비즈니스 로직에서 시간 생성
@@ -49,7 +51,7 @@ public class WalletEntity {
     private LocalDateTime updatedAt;
 
     @Builder
-    public WalletEntity(Long walletId,Long orderId ,BigDecimal amount, String settlementStatus, LocalDateTime settlementDate) {
+    public WalletEntity(Long walletId,Long orderId ,BigDecimal amount, SettlementStatus settlementStatus, LocalDateTime settlementDate) {
         this.id = null;
         this.amount = amount;
         this.settlementStatus = settlementStatus;

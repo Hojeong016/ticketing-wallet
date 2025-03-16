@@ -35,5 +35,9 @@ public class PaymentEventController {
         return ApiResponse.success(ResponseStatus.SUCCESS);
     }
 
+    // payment server에 이벤트 전달 컨트롤러
+
+
+
 
 }

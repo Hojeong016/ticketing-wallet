@@ -14,21 +14,35 @@ public class Wallet {
     private Long paymentId;
     private Long orderId;
     private BigDecimal amount;
-    private String settlementStatus;
+    private SettlementStatus settlementStatus;
     private LocalDateTime settlementDate;
+    private LocalDateTime failedDate;
+
+
+    public void completeSettlement(){
+        this.settlementStatus = SettlementStatus.COMPLETED;
+        this.settlementDate = LocalDateTime.now();
+
+        // 이벤트 발송?>>>
+    }
+
+    public void failedSettlement(){
+        this.settlementStatus =SettlementStatus.FAILED;
+        this.failedDate = LocalDateTime.now();
+    }
 
     @Builder
     public Wallet(Long walletId,
                   Long paymentId,
                   Long orderId,
                   BigDecimal amount,
-                  String settlementStatus,
+                  SettlementStatus settlementStatus,
                   LocalDateTime settlementDate) {
         this.id = walletId;
         this.paymentId = paymentId;
         this.orderId = orderId;
         this.amount = amount;
         this.settlementStatus = settlementStatus;
-        this.settlementDate = settlementDate;
     }
+
 }

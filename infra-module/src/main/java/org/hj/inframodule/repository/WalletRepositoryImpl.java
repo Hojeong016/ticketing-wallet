@@ -1,23 +1,20 @@
-package org.hj.appmodule.reposittory;
+package org.hj.inframodule.repository;
 
-import lombok.RequiredArgsConstructor;
 import org.hj.coremodule.model.domain.Wallet;
+import org.hj.coremodule.repository.WalletRepository;
 import org.hj.inframodule.domain.WalletEntity;
-import org.hj.inframodule.repository.WalletJpaRepository;
-import org.springframework.stereotype.Repository;
-
-import java.util.Optional;
-
-/**
- *  사용자의 Wallet 정보를 가져와 "정산 시작"으로 변경 후 core로 전달하기 위해
- */
-@Repository
-@RequiredArgsConstructor
-public class WalletRepository {
-
-    private final WalletJpaRepository walletJpaRepository;
 
 
+public class WalletRepositoryImpl implements WalletRepository {
+
+    private WalletJpaRepository walletJpaRepository;
+
+    @Override
+    public Wallet findById(Long id) {
+        return null;
+    }
+
+    @Override
     public Wallet save(Wallet wallet) {
         WalletEntity entity = toEntity(wallet);
         WalletEntity savedEntity = walletJpaRepository.save(entity);
@@ -44,6 +41,5 @@ public class WalletRepository {
                 .settlementDate(wallet.getSettlementDate())
                 .build();
     }
-
 
 }
