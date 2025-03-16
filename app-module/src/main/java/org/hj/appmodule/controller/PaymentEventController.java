@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
+ * 3/16
  * payment 서버에서 이벤트를 받는 리스너 컨트롤러 입니다,
  */
 @RestController

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 
 /**
+ * 3/16
  * eventKey를 기반으로 중복 체크를 진행하는 Service 클래스.
  *
  * [프로세스]

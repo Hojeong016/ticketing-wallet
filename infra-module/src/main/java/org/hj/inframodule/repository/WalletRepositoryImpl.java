@@ -6,6 +6,9 @@ import org.hj.coremodule.repository.WalletRepository;
 import org.hj.inframodule.domain.WalletEntity;
 import org.springframework.stereotype.Repository;
 
+/**
+ * 3/16
+ */
 @Repository
 @RequiredArgsConstructor
 public class WalletRepositoryImpl implements WalletRepository {

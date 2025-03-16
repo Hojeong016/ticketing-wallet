@@ -6,6 +6,7 @@ import java.math.BigDecimal;
 
 
 /**
+ * 3/16
  * 결제 이벤트를 전달받기 위한 DTO 클래스
  *
  * 멱등성 키 : orderId
