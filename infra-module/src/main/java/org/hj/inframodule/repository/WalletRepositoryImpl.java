@@ -1,18 +1,16 @@
 package org.hj.inframodule.repository;
 
+import lombok.RequiredArgsConstructor;
 import org.hj.coremodule.model.domain.Wallet;
 import org.hj.coremodule.repository.WalletRepository;
 import org.hj.inframodule.domain.WalletEntity;
+import org.springframework.stereotype.Repository;
 
-
+@Repository
+@RequiredArgsConstructor
 public class WalletRepositoryImpl implements WalletRepository {
 
-    private WalletJpaRepository walletJpaRepository;
-
-    @Override
-    public Wallet findById(Long id) {
-        return null;
-    }
+    private final WalletJpaRepository walletJpaRepository;
 
     @Override
     public Wallet save(Wallet wallet) {
@@ -24,11 +22,9 @@ public class WalletRepositoryImpl implements WalletRepository {
     private Wallet toDomain(WalletEntity entity) {
         return Wallet.builder()
                 .walletId(entity.getId())
-                .paymentId(entity.getPaymentId())
                 .orderId(entity.getOrderId())
                 .amount(entity.getAmount())
                 .settlementStatus(entity.getSettlementStatus())
-                .settlementDate(entity.getSettlementDate())
                 .build();
     }
 

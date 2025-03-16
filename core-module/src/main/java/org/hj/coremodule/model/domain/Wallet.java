@@ -11,7 +11,6 @@ import java.time.LocalDateTime;
 @Getter
 public class Wallet {
     private Long id;
-    private Long paymentId;
     private Long orderId;
     private BigDecimal amount;
     private SettlementStatus settlementStatus;
@@ -33,13 +32,10 @@ public class Wallet {
 
     @Builder
     public Wallet(Long walletId,
-                  Long paymentId,
                   Long orderId,
                   BigDecimal amount,
-                  SettlementStatus settlementStatus,
-                  LocalDateTime settlementDate) {
+                  SettlementStatus settlementStatus) {
         this.id = walletId;
-        this.paymentId = paymentId;
         this.orderId = orderId;
         this.amount = amount;
         this.settlementStatus = settlementStatus;
