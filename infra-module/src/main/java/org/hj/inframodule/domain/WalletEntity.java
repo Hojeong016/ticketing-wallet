@@ -21,14 +21,12 @@ public class WalletEntity {
     private Long id;
 
     @Column(nullable = false)
-    private Long paymentId;
-
-    @Column(nullable = false)
     private Long orderId;
 
     @Column(nullable = false)
     private BigDecimal amount;
 
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private SettlementStatus settlementStatus;
 

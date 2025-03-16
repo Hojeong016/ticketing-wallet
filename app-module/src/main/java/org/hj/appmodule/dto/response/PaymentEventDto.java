@@ -13,8 +13,6 @@ import java.math.BigDecimal;
  */
 @Getter
 public class PaymentEventDto {
-
     private Long orderId;
     private BigDecimal amount;
-
 }
