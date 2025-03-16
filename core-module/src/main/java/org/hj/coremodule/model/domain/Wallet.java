@@ -6,6 +6,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 /**
+ * 3/16
  * 순수 자바 객체로 관리
  */
 @Getter

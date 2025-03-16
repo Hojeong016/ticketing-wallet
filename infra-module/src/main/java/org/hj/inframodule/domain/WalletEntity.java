@@ -9,6 +9,9 @@ import org.hj.coremodule.model.domain.SettlementStatus;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+/**
+ * 3/16
+ */
 @Entity
 @Table(name = "wallet")
 @Getter

@@ -4,6 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.springframework.http.HttpStatus;
 
+/**
+ * 3/16
+ */
 @Getter
 @AllArgsConstructor
 public enum ResponseStatus {

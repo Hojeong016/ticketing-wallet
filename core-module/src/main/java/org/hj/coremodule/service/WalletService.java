@@ -13,6 +13,7 @@ public class WalletService {
     private final WalletRepository walletRepository;
 
     /**
+     * 3/16
      * 1) Wallet의 상태를 확인 (PENDING인지 검증).
      * 3) 정산 완료 후 Wallet 상태를 COMPLETED로 변경.
      * 4) DB에 최종 결과(상태) 저장.
