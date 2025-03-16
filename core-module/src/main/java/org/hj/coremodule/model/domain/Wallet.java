@@ -1,7 +1,6 @@
 package org.hj.coremodule.model.domain;
 
-import lombok.AccessLevel;
-import lombok.Setter;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -9,15 +8,41 @@ import java.time.LocalDateTime;
 /**
  * 순수 자바 객체로 관리
  */
+@Getter
 public class Wallet {
-
     private Long id;
     private Long paymentId;
     private Long orderId;
     private BigDecimal amount;
-
-    @Setter(AccessLevel.PRIVATE)
-    private String settlementStatus;
+    private SettlementStatus settlementStatus;
     private LocalDateTime settlementDate;
+    private LocalDateTime failedDate;
+
+
+    public void completeSettlement(){
+        this.settlementStatus = SettlementStatus.COMPLETED;
+        this.settlementDate = LocalDateTime.now();
+
+        // 이벤트 발송?>>>
+    }
+
+    public void failedSettlement(){
+        this.settlementStatus =SettlementStatus.FAILED;
+        this.failedDate = LocalDateTime.now();
+    }
+
+    @Builder
+    public Wallet(Long walletId,
+                  Long paymentId,
+                  Long orderId,
+                  BigDecimal amount,
+                  SettlementStatus settlementStatus,
+                  LocalDateTime settlementDate) {
+        this.id = walletId;
+        this.paymentId = paymentId;
+        this.orderId = orderId;
+        this.amount = amount;
+        this.settlementStatus = settlementStatus;
+    }
 
 }
